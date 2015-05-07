@@ -3,4 +3,5 @@ class Profile < ActiveRecord::Base
                     length: { minimum: 2 }
   validates :description, presence: true,
                     length: { maximum: 140 }
+  validates :pack, presence: true
 end

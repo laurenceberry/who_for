@@ -29,6 +29,13 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def destroy
+    @profile = Profile.find(params[:id])
+    @profile.destroy
+
+    redirect_to profiles_path
+  end
+
   def index
     @profiles = Profile.all
   end
@@ -39,6 +46,6 @@ class ProfilesController < ApplicationController
 
 private
   def profile_params
-    params.require(:profile).permit(:name, :description)
+    params.require(:profile).permit(:name, :description, :age, :occupation, :strength, :weakness, :considerations, :pack)
   end
 end

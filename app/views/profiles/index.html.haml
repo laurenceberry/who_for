@@ -1,18 +1,24 @@
-%h1 Listing Profiles
+.intro
+  %h1 Who are you designing for?
 
-= link_to 'Add profile', new_profile_path
+.main
+  .wide-container
+    %a{:href => new_profile_path}
+      .profile.add
+        .image
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th{:colspan => "3"}
-  - @profiles.each do |profile|
-    %tr
-      %td= profile.name
-      %td= profile.description
-      %td= link_to 'Show',profile_path(profile)
-      %td= link_to 'Edit', edit_profile_path(profile)
-      %td= link_to 'Destroy', profile_path(profile), |
-          method: :delete,                          |
-          data: { confirm: 'Are you sure?' }        |
+    .clear
+    - @profiles.each do |profile|
+      %a{:href => profile_path(profile)}
+        .profile
+          .image
+          %h2=profile.name
+          .basics
+            = profile.age
+            = profile.occupation
+
+          %p= profile.description
+          %p.strength= profile.strength
+          %p.weakness= profile.weakness
+          %p= profile.considerations
+          %p.pack= profile.pack

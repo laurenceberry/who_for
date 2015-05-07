@@ -1,0 +1,99 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#index
+
+  .intro
+    width: 1095px
+    margin: auto
+    background-color: #0723A4
+    padding: 100px 0
+
+    h1
+      text-align: center
+      color: #fff
+      font-size: 4em
+      font-family: Ginger
+      font-weight: normal !important
+
+
+  .profile
+    width: 207px
+    float: left
+    margin: 0 15px 25px 15px
+    height: 317px
+    background-color: #F4F7F7
+    border: 1px solid transparent
+    padding: 15px
+    position: relative
+    &:hover
+      border: 1px solid #DAE3E5
+      a
+        text-decoration: none
+
+    h2
+      font-size: 1.2em
+      display: inline-block
+      margin-bottom: 0
+      margin-right: 5px
+    h2, p
+      position: relative
+      z-index: 10
+    .basics
+      display: inline-block
+      margin-right: 5px
+
+    .strength
+      color: green
+    .weakness
+      color: red
+
+    .pack
+      color: darken(#DAE3E5, 15%)
+      position: absolute
+      bottom: 0
+      left: 15px
+
+    .image
+      height: 200px
+      position: absolute
+      z-index: 0
+      top: 50px
+      left: 0
+      bottom: 150px
+      right: 0
+      background-position: center !important
+      background-size: cover !important
+      background: url("face.svg") center no-repeat
+
+  .profile.add
+    .image
+      background: url("egg.svg") center no-repeat
+
+// #index
+//   .profile
+//     height: 317px
+//     width: 207px
+//     padding: 15px
+//     border-radius: 5px
+//     border: 1px solid #2E9AD9
+//     margin: 25px
+//     float: left
+
+#new, #create, #edit, #update
+  label, textarea, input
+    width: 100%
+    mmargin: none
+
+  label
+    margin-bottom: 5px
+    display: inline-block
+
+  textarea, input
+    margin-bottom: 15px
+    padding: 10px
+
+  textarea
+    height: 75px
