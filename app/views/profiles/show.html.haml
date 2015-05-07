@@ -1,15 +1,7 @@
 = link_to 'Edit', edit_profile_path(@profile)
-%td= link_to 'Destroy', profile_path(@profile), |
+= link_to 'Destroy', profile_path(@profile), |
     method: :delete,                          |
     data: { confirm: 'Are you sure?' }        |
-%p
-  %strong name:
-  = @profile.name
-%p
-  %strong Age:
-  = @profile.age
-%p
-  %strong description:
-  = @profile.description
+
 
 = link_to 'Back', profiles_path
