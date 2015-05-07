@@ -10,7 +10,6 @@
         - @profile.errors.full_messages.each do |msg|
           %li= msg
 
-
   = f.label :name
   = f.text_field :name
 
@@ -20,14 +19,23 @@
   = f.label :occupation
   = f.text_field :occupation
 
+  = f.label :living_situation
+  = f.text_field :living_situation
+
   = f.label :description
   = f.text_area :description
 
-  = f.label :strength
-  = f.text_field :strength
+  = f.label :ability
+  = f.text_field :ability
 
-  = f.label :weakness
-  = f.text_field :weakness
+  = f.label :aptitude
+  = f.text_field :aptitude
+
+  = f.label :attitude
+  = f.text_field :attitude
+
+  = f.label :bigger_picture
+  = f.text_field :bigger_picture
 
   = f.label :considerations
   = f.text_area :considerations
