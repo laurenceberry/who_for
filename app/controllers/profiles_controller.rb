@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
 
     if @profile.save
-      redirect_to @profile
+      redirect_to profiles_path
     else
       render 'new'
     end
@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
     if @profile.update(profile_params)
-      redirect_to @profile
+      redirect_to profiles_path
     else
       render 'edit'
     end
