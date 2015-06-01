@@ -1,6 +1,3 @@
-.intro
-  %h1 Persona
-
 %section.featured
   %h2 Random set
 
@@ -31,4 +28,8 @@
 
 %section.decks
   %h2 Your decks
+  -unless @user
+    %h3
+      =link_to 'Sign in', new_user_session_path
+      to create your own decks
 
