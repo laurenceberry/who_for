@@ -1,13 +1,14 @@
 .intro
-  %h1 Who are you designing for?
+  %h1
 
 .main
   .wide-container
     %a{:href => new_profile_path}
       .profile.add
-        .image
-
+        %h2 Add new profile
     .clear
+
+    %h2 Random set
     - @profiles.each do |profile|
       %a{:href => profile_path(profile)}
         .profile
@@ -27,3 +28,9 @@
           %p= profile.bigger_picture
           %p= profile.considerations
           %p.pack= profile.pack
+
+    %h2 Packs
+
+
+    %h2 Your deck
+
