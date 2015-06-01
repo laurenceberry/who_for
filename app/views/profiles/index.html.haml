@@ -4,7 +4,7 @@
   %a.profile.add{:href => new_profile_path}
     %h2 Add new profile
 
-  - @profiles.each do |profile|
+  - @profiles.shuffle.take(6).each do |profile|
     %a.profile{:href => profile_path(profile)}
       .image
       %h2=profile.name
