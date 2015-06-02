@@ -40,6 +40,12 @@ group :development do
   gem 'better_errors'
 end
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'capybara'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
