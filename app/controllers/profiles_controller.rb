@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-  http_basic_authenticate_with name: "admin", password: "fred123", except: []
 
   def new
     @profile = Profile.new
