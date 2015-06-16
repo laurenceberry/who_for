@@ -7,6 +7,7 @@ Feature: Homepage
 
   Background:
     Given I visit the homepage
+    Given There are profiles
 
   Scenario: I see the homepage
     Then I should see the homepage

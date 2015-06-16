@@ -11,5 +11,4 @@ Feature: Edit a user
 
   Scenario: Edit a user
     Given I edit the user fields
-    And I submit the fields
     Then I should see the updated user

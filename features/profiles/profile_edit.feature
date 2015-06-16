@@ -3,7 +3,7 @@ Feature: Edit a profile
   I should be able to edit an existing persona
 
   Background:
-    Given A persona exists
+    Given There are profiles
     And I visit the edit persona page
 
   Scenario: I should see the form
@@ -11,6 +11,5 @@ Feature: Edit a profile
 
   Scenario: Edit a persona
     Given I edit the profile fields
-    And I submit the fields
     Then I should see the updated persona
 

@@ -10,5 +10,4 @@ Feature: Create a user
 
   Scenario: Create a new user
     Given I fill in the user fields
-    And I submit the fields
     Then I should see the user

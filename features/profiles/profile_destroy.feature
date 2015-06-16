@@ -3,8 +3,10 @@ Feature: Destroy a persona
   I should be able to delete an existing persona
 
   Background:
-    Given A persona exists
-    And I visit the delete persona link
+    Given There are profiles
+    And I visit the homepage
+    And I click on the persona
 
   Scenario: Delete the persona
+    Given I click the link "Destroy"
     Then I should no longer see the persona
