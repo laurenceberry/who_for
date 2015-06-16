@@ -7,7 +7,7 @@
     %h2 Add new profile
 
   - @profiles.each do |profile|
-    %a.profile{:href => profile_path(profile)}
+    %a.profile.view{:href => profile_path(profile)}
       .image
       %h2=profile.name
       .basics
