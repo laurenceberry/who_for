@@ -4,7 +4,9 @@ Feature: Edit a profile
 
   Background:
     Given There are profiles
-    And I visit the edit persona page
+    Given I visit the homepage
+    And I click on the persona
+    And I click the link "Edit"
 
   Scenario: I should see the form
     Then I should be able to edit a persona

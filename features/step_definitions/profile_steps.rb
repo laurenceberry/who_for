@@ -24,6 +24,19 @@ Given (/^I fill in the profile fields$/) do
   @profile = Profile.last
 end
 
+Given (/^I edit the profile fields$/) do
+  @name = 'Luke Mitchell'
+  @desc = 'hello'
+  @pack = 'test pack'
+  within 'form.edit_profile' do
+    fill_in 'Name', with: @name
+    fill_in 'Description', with: @desc
+    fill_in 'Pack', with: @pack
+    find("input[type='submit']").click
+  end
+  @profile = Profile.last
+end
+
 Then (/^I should see the persona$/) do
   visit(profile_path(@profile))
   page.has_content?(@name)
@@ -34,4 +47,13 @@ end
 Then (/^I should no longer see the persona$/) do
   visit(profiles_path)
   page.has_no_text?(@profiles.first.name)
+end
+
+Then (/^I should see the updated persona$/) do
+  visit(profiles_path)
+  page.has_text?(@name)
+end
+
+Then (/^I should be able to edit a persona$/) do
+  page.has_selector?('edit_profile')
 end
