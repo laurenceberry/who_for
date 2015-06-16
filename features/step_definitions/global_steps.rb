@@ -3,5 +3,5 @@ Given (/^I visit the homepage$/) do
 end
 
 Then (/^I should see the homepage$/) do
-  find('.profiles#index')
+  find('.pages#index')
 end

@@ -1,3 +1,37 @@
 %h1 Who are you designing for?
 
-= link_to 'All profiles', controller: 'profiles'
+%section.featured
+  %h2 Random set
+
+  %a.profile.add{:href => new_profile_path}
+    %h2 Add new profile
+
+  - @profiles.each do |profile|
+    %a.profile{:href => profile_path(profile)}
+      .image
+      %h2=profile.name
+      .basics
+        = profile.age
+        = profile.occupation
+
+      %p= profile.description
+      %p= profile.living_situation
+      %p= profile.interests
+      %p= profile.quote
+      %p= profile.ability
+      %p= profile.aptitude
+      %p= profile.attitude
+      %p= profile.bigger_picture
+      %p= profile.considerations
+      %p.pack= profile.pack
+
+%section.packs
+  %h2 Packs
+
+%section.decks
+  %h2 Your decks
+  -unless @user
+    %h3
+      =link_to 'Sign in', new_user_session_path
+      to create your own decks
+
