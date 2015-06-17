@@ -3,8 +3,9 @@ Feature: Create a profile
   I should be able to create a new persona
 
   Background:
+    Given There are packs
     Given I visit the homepage
-    Given I click the link "Add new profile"
+    Given I visit a pack
 
   Scenario: I should see the form
     Then I should be able to create a persona

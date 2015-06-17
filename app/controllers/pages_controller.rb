@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def index
-    @profiles = Profile.all.shuffle.take(6)
+    @packs = Pack.all.shuffle.take(6)
   end
 end

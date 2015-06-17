@@ -1,0 +1,4 @@
+- @packs.each do |pack|
+  %a.pack{:href => pack_path(pack)}
+    .image
+    %h2=pack.name

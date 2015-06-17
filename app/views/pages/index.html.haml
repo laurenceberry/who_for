@@ -3,30 +3,34 @@
 %section.featured
   %h2 Random set
 
-  %a.profile.add{:href => new_profile_path}
-    %h2 Add new profile
+  %a.profile.add{:href => new_pack_path}
+    %h2 Add new pack
 
-  - @profiles.each do |profile|
-    %a.profile.view{:href => profile_path(profile)}
-      .image
-      %h2=profile.name
-      .basics
-        = profile.age
-        = profile.occupation
+  - @packs.each do |pack|
+    - pack.profiles.each do |profile|
+      %a.profile.view{:href => pack_path(pack)}
+        .image
+        %h2=profile.name
+        .basics
+          = profile.age
+          = profile.occupation
 
-      %p= profile.description
-      %p= profile.living_situation
-      %p= profile.interests
-      %p= profile.quote
-      %p= profile.ability
-      %p= profile.aptitude
-      %p= profile.attitude
-      %p= profile.bigger_picture
-      %p= profile.considerations
-      %p.pack= profile.pack
+        %p= profile.description
+        %p= profile.living_situation
+        %p= profile.interests
+        %p= profile.quote
+        %p= profile.ability
+        %p= profile.aptitude
+        %p= profile.attitude
+        %p= profile.bigger_picture
+        %p= profile.considerations
+        %p.pack= profile.pack
 
 %section.packs
   %h2 Packs
+  - @packs.each do |pack|
+    %a.pack{ href: pack_path(pack) }
+      %h2= pack.name
 
 %section.decks
   %h2 Your decks

@@ -8,5 +8,5 @@ Feature: Destroy a persona
     And I click on the persona
 
   Scenario: Delete the persona
-    Given I click the link "Destroy"
+    Given I click the first link "Delete Profile"
     Then I should no longer see the persona

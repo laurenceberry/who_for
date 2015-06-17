@@ -1,4 +1,4 @@
-= form_for([@pack, @profile]) do |f|
+= form_for([@pack, @pack.profiles.build]) do |f|
 
   = f.label :name
   = f.text_field :name
