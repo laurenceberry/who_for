@@ -10,4 +10,5 @@ Feature: Create a user
 
   Scenario: Create a new user
     Given I fill in the user fields
+    Given I visit the homepage
     Then I should see the user
