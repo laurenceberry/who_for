@@ -45,17 +45,16 @@ Given /^I fill in the user fields$/ do
     fill_in 'Password confirmation', with: @password
     find("input[type='submit']").click
   end
-  @user = User.last
 end
 
 Given /^I edit the user fields$/ do
   @new_email = 'luke@wearefuturegov.com'
-  @new_password = 'foobarbaz'
+  @new_password = 'newpasswordyo'
   within 'form.edit_user' do
     fill_in 'Email', with: @new_email
     fill_in 'Password', with: @new_password
     fill_in 'Password confirmation', with: @new_password
-    fill_in 'Current password', with: @user.password
+    fill_in 'user_current_password', with: 'foobarbaz'
     find("input[type='submit']").click
   end
 end

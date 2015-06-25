@@ -3,6 +3,6 @@ require 'ffaker'
 FactoryGirl.define do
   factory :user do |f|
     f.email { FFaker::Internet.email }
-    f.password { FFaker::Internet.password }
+    f.password 'foobarbaz'
   end
 end

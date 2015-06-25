@@ -1,0 +1,5 @@
+%nav.site-header{role: "navigation"}
+  - if user_signed_in?
+    = link_to current_user.email, edit_user_registration_path(current_user)
+  - else
+    = link_to "Sign in/Sign up", new_user_registration_path
