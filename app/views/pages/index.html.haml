@@ -36,6 +36,6 @@
   %h2 Your decks
   -unless @user
     %h3
-      =link_to 'Sign in', new_user_session_path
-      to create your own decks
-
+      - if !user_signed_in?
+        =link_to 'Sign in', new_user_session_path
+        to create your own decks
