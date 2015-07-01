@@ -1,6 +1,7 @@
 %h2
   Personas in
   = @pack.name
+
 - @pack.profiles.each do |profile|
   %a.profile{href: pack_profile_path(profile.pack, profile)}
     .image
@@ -17,6 +18,9 @@
     %p= profile.attitude
     %p= profile.bigger_picture
     %p= profile.considerations
+    - if profile.scalers 
+      - profile.scalers.each do |scaler|
+        = scaler.name
   =link_to 'Edit Profile', edit_pack_profile_path(@pack, profile)
   =link_to 'Delete Profile', [profile.pack, profile],
     method: :delete, 

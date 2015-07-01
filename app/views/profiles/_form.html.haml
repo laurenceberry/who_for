@@ -33,5 +33,10 @@
   = f.label :considerations
   = f.text_area :considerations
 
+  = f.fields_for :scalers do |builder|
+    = render 'scaler_fields', f: builder
+
+  = link_to_add_fields "Add scaler", f, :scalers
+
   = f.submit :class => 'button'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616140138) do
+ActiveRecord::Schema.define(version: 20150630112857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20150616140138) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "profile_scalers", force: true do |t|
+    t.string   "name"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "scale"
+    t.integer  "out_of"
+  end
+
+  add_index "profile_scalers", ["profile_id"], name: "index_profile_scalers_on_profile_id", using: :btree
 
   create_table "profiles", force: true do |t|
     t.string   "name"

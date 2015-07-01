@@ -14,8 +14,16 @@ Given (/^I click the link "(.*?)"$/) do |link|
   click_link(link)
 end
 
+Given (/^I click the button "(.*?)"$/) do |button|
+  click_button(button)
+end 
+
 Given (/^I click the first link "(.*?)"$/) do |link|
   first(:link, link).click
+end
+
+Given (/^I fill in "(.*?)" with "(.*?)"$/) do |field, content|
+  fill_in field, with: content
 end
 
 Given (/^I click on the persona$/) do

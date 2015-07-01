@@ -7,6 +7,7 @@
 require 'cucumber/rails'
 require 'factory_girl_rails'
 require 'ffaker'
+require 'capybara/poltergeist'
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.
@@ -57,4 +58,6 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+# Use poltergeist for javascript tests.
+Capybara.javascript_driver = :poltergeist
 World(FactoryGirl::Syntax::Methods)

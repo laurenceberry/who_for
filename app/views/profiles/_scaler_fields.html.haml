@@ -1,0 +1,10 @@
+%fieldset
+  = f.label :name, 'Scale Name'
+  = f.text_field :name
+  = f.label :scale
+  = f.text_field :scale
+  = f.label :out_of
+  = f.text_field :out_of
+  = f.hidden_field :_destroy
+  = link_to 'remove', '#', class: "remove_field"
+

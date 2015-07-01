@@ -4,6 +4,7 @@ Feature: Edit a profile
 
   Background:
     Given There are packs
+    Given There are profiles
     Given I visit the homepage
     And I click on the persona
     And I click the first link "Edit Profile"
