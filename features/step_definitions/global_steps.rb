@@ -26,6 +26,10 @@ Given (/^I fill in "(.*?)" with "(.*?)"$/) do |field, content|
   fill_in field, with: content
 end
 
+Given (/^I check "(.*?)"$/) do |checkbox|
+  check checkbox
+end
+
 Given (/^I click on the persona$/) do
   first('.profile.view').click
 end

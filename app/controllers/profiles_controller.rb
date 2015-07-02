@@ -40,6 +40,6 @@ class ProfilesController < ApplicationController
 
 private
   def profile_params
-    params.require(:profile).permit(:description, :living_situation, :interests, :quote, :ability, :aptitude, :attitude, :bigger_picture, :name, :age, :occupation, :considerations, scalers_attributes: [:id, :name, :profile_id, :scale, :out_of] )
+    params.require(:profile).permit(:name, :generate_name, :description, :living_situation, :interests, :quote, :ability, :aptitude, :attitude, :bigger_picture, :age, :occupation, :considerations, scalers_attributes: [:id, :name, :profile_id, :scale, :out_of] )
   end
 end

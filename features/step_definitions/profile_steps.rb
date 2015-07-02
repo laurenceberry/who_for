@@ -15,9 +15,11 @@ end
 Given (/^I fill in the profile fields$/) do
   @name = 'Luke Mitchell'
   @desc = 'hello'
+  @age = 54
   within 'form.new_profile' do
     fill_in 'Name', with: @name
     fill_in 'Description', with: @desc
+    fill_in 'Age', with: @age
     find("input[type='submit']").click
   end
   @profile = Profile.last
@@ -26,9 +28,11 @@ end
 Given (/^I edit the profile fields$/) do
   @name = 'Luke Mitchell'
   @desc = 'hello'
+  @age = 54
   within 'form.edit_profile' do
     fill_in 'Name', with: @name
     fill_in 'Description', with: @desc
+    fill_in 'Age', with: @age
     find("input[type='submit']").click
   end
   @profile = Profile.last
@@ -37,6 +41,10 @@ end
 Then (/^I should see the persona$/) do
   page.has_content?(@name)
   page.has_content?(@desc)
+end
+
+Then (/^I should see the generated name$/) do
+  page.has_content?(Profile.last.name)
 end
 
 Then (/^I should no longer see the persona$/) do

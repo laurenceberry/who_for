@@ -14,3 +14,8 @@ Feature: Create a profile
     Given I fill in the profile fields
     Then I should see the persona
 
+  Scenario: Create a new persona - Generate a name
+    Given I check "Generate name"
+    Given I fill in the profile fields
+    Then I should see the generated name
+
