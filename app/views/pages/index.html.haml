@@ -1,36 +1,46 @@
 %h1 Who are you designing for?
+%br
 
 %section.featured
   %h2 Random set
 
-  %a.profile.add{:href => new_pack_path}
-    %h2 Add new pack
-
   - @packs.each do |pack|
     - pack.profiles.each do |profile|
-      %a.profile.view{:href => pack_path(pack)}
-        .image
-        %h2=profile.name
+      %a.card.profile.view{:href => pack_path(pack)}
+        .intro
+          .image
+          .preview
+            %h2=profile.name
+            %p= profile.quote
         .basics
-          = profile.age
-          = profile.occupation
-
-        %p= profile.description
-        %p= profile.living_situation
-        %p= profile.interests
-        %p= profile.quote
-        %p= profile.ability
-        %p= profile.aptitude
-        %p= profile.attitude
-        %p= profile.bigger_picture
-        %p= profile.considerations
-        %p.pack= profile.pack
+          %p
+            %span
+              Age:
+            =profile.age
+          %p
+            %span
+              Occupation:
+            = profile.occupation
+          %p
+            %span
+              Considerations:
+            = profile.considerations
+          %p.pack= profile.pack.name
 
 %section.packs
   %h2 Packs
+  %a.card.add{:href => new_pack_path}
+    .intro
+      .preview
+        .image
+        %h3 Add new pack
+
   - @packs.each do |pack|
-    %a.pack{ href: pack_path(pack) }
-      %h2= pack.name
+    %a.card.pack{ href: pack_path(pack) }
+      .intro
+        .preview
+          .image
+          %h3= pack.name
 
 %section.decks
   %h2 Your decks

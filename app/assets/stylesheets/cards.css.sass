@@ -1,0 +1,51 @@
+.card
+  +span-columns(4 of 12)
+  position: relative
+  background-color: $light_grey
+  +media($medium)
+    +span-columns(6 of 12)
+  +media($small)
+    width: 100%
+
+  text-decoration: none
+  &:hover
+    a
+      text-decoration: none
+
+  .intro, .basics, .add
+    +span-columns(4 of 4)
+    position: relative
+    padding: 5px
+    .image
+      +span-columns(1 of 4)
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      background-color: $purple
+    .preview
+      +span-columns(3 of 4)
+      +shift(1 of 4)
+    h2
+      font-size: 1.2em
+      display: inline-block
+      margin-bottom: 0
+      margin-right: 5px
+      color: $purple
+    h2, p
+      position: relative
+      z-index: 10
+  .basics
+    background-color: $lightest_grey
+    padding: 5px 15px
+    p span
+      color: lighten(#000, 50%)
+
+  .pack
+    color: $light_purple
+    margin: 0
+
+.add, .pack
+  .intro
+    .image
+      background-color: $green
