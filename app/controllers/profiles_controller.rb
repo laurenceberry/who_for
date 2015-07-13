@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
 
   def show
     @pack = Pack.find(params[:pack_id])
-    @profile = Profile.find(params[:id])
+    @profile = @pack.profiles.find(params[:id])
   end
 
 private

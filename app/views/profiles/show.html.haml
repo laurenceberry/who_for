@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .overview
   .basics
     %h1=@profile.name
@@ -71,3 +72,28 @@
             = scaler.out_of
 
 .personality
+=======
+%a.profile
+  .image
+  %h2=@profile.name
+  .basics
+    = @profile.age
+    = @profile.occupation
+    %p= @profile.description
+    %p= @profile.living_situation
+    %p= @profile.interests
+    %p= @profile.quote
+    %p= @profile.ability
+    %p= @profile.aptitude
+    %p= @profile.attitude
+    %p= @profile.bigger_picture
+    %p= @profile.considerations
+    - if @profile.scalers
+      - @profile.scalers.each do |scaler|
+        = scaler.name
+
+= link_to 'Edit', edit_pack_profile_path(@pack, @profile)
+= link_to 'Destroy', [@pack, @profile],
+    method: :delete,
+    data: { confirm: 'Are you sure?' }
+>>>>>>> a657c0bc7709879c86d1358be0d84331897ef771
