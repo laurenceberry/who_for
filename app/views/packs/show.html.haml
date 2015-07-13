@@ -1,40 +1,53 @@
-%h2
-  Personas in
-  = @pack.name
+%h1
+  You are designing for
+  %em
+    = @pack.name
+%section
+  %h2
+    Personas in
+    = @pack.name
 
-- @pack.profiles.each do |profile|
-  %a.profile{href: pack_profile_path(profile.pack, profile)}
-    .image
-    %h2=profile.name
-    .basics
-      = profile.age
-      = profile.occupation
-    %p= profile.description
-    %p= profile.living_situation
-    %p= profile.interests
-    %p= profile.quote
-    %p= profile.ability
-    %p= profile.aptitude
-    %p= profile.attitude
-    %p= profile.bigger_picture
-    %p= profile.considerations
-    - if profile.scalers 
-      - profile.scalers.each do |scaler|
-        = scaler.name
-  =link_to 'Edit Profile', edit_pack_profile_path(@pack, profile)
-  =link_to 'Delete Profile', [profile.pack, profile],
-    method: :delete, 
-    data: { confirm: 'Are you sure?' }
+  - @pack.profiles.each do |profile|
+    %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
+      .intro
+        .image
+        .preview
+          %h2=profile.name
+          %p= profile.quote
+      .basics
+        %p
+          %span
+            Age:
+          =profile.age
+        %p
+          %span
+            Occupation:
+          = profile.occupation
 
-%h2
-  Add a persona to 
-  = @pack.name
+        %p.pack= profile.pack.name
 
-= render 'profiles/create_form'
+        / - if profile.scalers
+        /   - profile.scalers.each do |scaler|
+        /     = scaler.name
 
-= link_to 'Edit', edit_pack_path(@pack)
-= link_to 'Destroy', pack_path(@pack), |
-    method: :delete,                          |
-    data: { confirm: 'Are you sure?' }        |
 
-= link_to 'Back', packs_path
+        / =link_to 'Edit Profile', edit_pack_profile_path(@pack, profile)
+        / =link_to 'Delete Profile', [profile.pack, profile],
+        /   method: :delete,
+        /   data: { confirm: 'Are you sure?' }
+
+%section.new
+  %hr
+  %br
+
+  %h2
+    Add a persona to
+    = @pack.name
+
+  = render 'profiles/create_form'
+
+  = link_to 'Edit', edit_pack_path(@pack)
+  = link_to 'Destroy', pack_path(@pack), |
+      method: :delete,                          |
+      data: { confirm: 'Are you sure?' }        |
+

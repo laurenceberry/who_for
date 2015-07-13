@@ -1,6 +1,57 @@
-// Place all the styles related to the profiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#show
 
+  %block,
+  .block
+    background-color: $light_grey
+    margin-bottom: 15px
+    padding: 15px
+    p span
+      font-weight: 600
+      color: $primary
 
-#index
+  .overview
+    +span-columns(12)
+    .basics
+      +span-columns(4 of 12)
+      h1
+        @extend %block
+        width: 100%
+        font-weight: 600
+        font-size: 2.5em
+        line-height: 1.25em
+        text-align: center
+        background-color: $primary
+        color: $light_grey
+        margin-top: 0
+        padding: 25px
+
+      .image
+        @extend %block
+        min-width: 300px
+        padding: 0
+        background-color: $primary
+        overflow: hidden
+        img
+          height: auto
+          width: 325px
+
+    .quote
+      +span-columns(8 of 12)
+      margin-right: 0
+      @extend %block
+      border-top: 2px solid $primary
+      p
+        color: $primary
+        font-weight: 500
+        font-size: 2.5em
+        line-height: 1.25em
+        text-align: center
+
+    .characteristics
+      +span-columns(8 of 12)
+      .block
+        width: calc(50% - 15px)
+        margin-right: 15px
+      .block:nth-child(even)
+        width: 50%
+        margin-right: 0

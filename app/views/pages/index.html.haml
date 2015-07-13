@@ -2,11 +2,11 @@
 %br
 
 %section.featured
-  %h2 Random set
+  %h2 Random personas
 
   - @packs.each do |pack|
     - pack.profiles.each do |profile|
-      %a.card.profile.view{:href => pack_path(pack)}
+      %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
         .intro
           .image
           .preview
@@ -21,14 +21,19 @@
             %span
               Occupation:
             = profile.occupation
-          %p
-            %span
-              Considerations:
-            = profile.considerations
+        - unless profile.scalers.blank?
+          - profile.scalers.each do |scaler|
+            .block.grid-item
+              %h2= scaler.name
+              %p
+                = scaler.scale
+                \/
+                = scaler.out_of
           %p.pack= profile.pack.name
 
 %section.packs
   %h2 Packs
+
   %a.card.add{:href => new_pack_path}
     .intro
       .preview
@@ -42,10 +47,11 @@
           .image
           %h3= pack.name
 
-%section.decks
-  %h2 Your decks
   -unless @user
     %h3
       - if !user_signed_in?
         =link_to 'Sign in', new_user_session_path
         to create your own decks
+
+
+

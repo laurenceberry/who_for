@@ -1,7 +1,73 @@
-= link_to 'Edit', '#'
-= link_to 'Destroy', '#',
-    method: :delete,
-    data: { confirm: 'Are you sure?' }
+.overview
+  .basics
+    %h1=@profile.name
+    .image= image_tag @profile.image.url
+    .block
+      %p
+        %span
+          Age:
+        = @profile.age
 
+      - unless @profile.occupation.blank?
+        %p
+          %span
+            Position:
+          = @profile.occupation
 
-= link_to 'Back', '#'
+      - unless @profile.living_situation.blank?
+        %p
+          %span
+            Living situation:
+          = @profile.living_situation
+
+      %i= @profile.pack.name
+      .clear
+      %br
+      =link_to 'Edit Profile', edit_pack_profile_path(@pack, @profile)
+      =link_to 'Delete Profile', [@profile.pack, @profile],
+        method: :delete,
+        data: { confirm: 'Are you sure?' }
+
+  .quote
+    %p= @profile.quote
+  .characteristics.grid.js-masonry
+    - unless @profile.description.blank?
+      .block.grid-item
+        %h2 Description
+        %p= @profile.description
+
+    - unless @profile.characteristics.blank?
+      .block.grid-item
+        %h2 Characteristics
+        %p= @profile.characteristics
+
+    - unless @profile.oppertunities.blank?
+      .block.grid-item
+        %h2 Oppertunities
+        %p= @profile.oppertunities
+
+    - unless @profile.cautions.blank?
+      .block.grid-item
+        %h2 Cautions
+        %p= @profile.cautions
+
+    - unless @profile.background.blank?
+      .block.grid-item
+        %h2 Background
+        %p= @profile.background
+
+    - unless @profile.motivation.blank?
+      .block.grid-item
+        %h2 Motivation
+        %p= @profile.motivation
+
+    - unless @profile.scalers.blank?
+      - @profile.scalers.each do |scaler|
+        .block.grid-item
+          %h2= scaler.name
+          %p
+            = scaler.scale
+            \/
+            = scaler.out_of
+
+.personality

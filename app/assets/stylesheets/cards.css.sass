@@ -1,9 +1,12 @@
 .card
   +span-columns(4 of 12)
+  +omega(4n)
+  margin-bottom: 15px
   position: relative
   background-color: $light_grey
   +media($medium)
     +span-columns(6 of 12)
+    +omega(1n)
   +media($small)
     width: 100%
 
@@ -22,16 +25,19 @@
       top: 0
       bottom: 0
       left: 0
-      background-color: $purple
+      background-color: $primary
     .preview
       +span-columns(3 of 4)
       +shift(1 of 4)
+      p
+        font-weight: 400
+
     h2
       font-size: 1.2em
       display: inline-block
       margin-bottom: 0
       margin-right: 5px
-      color: $purple
+      color: $primary
     h2, p
       position: relative
       z-index: 10
@@ -39,13 +45,19 @@
     background-color: $lightest_grey
     padding: 5px 15px
     p span
-      color: lighten(#000, 50%)
+      font-weight: 400
+      color: $primary
 
   .pack
-    color: $light_purple
+    color: $dark_grey
     margin: 0
 
-.add, .pack
+.add
   .intro
     .image
       background-color: $green
+
+.pack
+  .intro
+    .image
+      background-color: $dark_grey

@@ -1,36 +1,49 @@
 = form_for([@pack, @profile]) do |f|
 
+  %h2 Basic
+
+  = f.file_field :image
+
   = f.label :name
   = f.text_field :name
+
+  = f.label :generate_name
+  = f.check_box :generate_name
+
   = f.label :age
   = f.text_field :age
-
-  = f.label :occupation
-  = f.text_field :occupation
-
-  = f.label :living_situation
-  = f.text_field :living_situation
-
-  = f.label :quote
-  = f.text_field :quote
 
   = f.label :description
   = f.text_area :description
 
-  = f.label :ability
-  = f.text_field :ability
+  = f.label :quote
+  = f.text_field :quote
 
-  = f.label :aptitude
-  = f.text_field :aptitude
+  = f.label :living_situation
+  = f.text_field :living_situation
 
-  = f.label :attitude
-  = f.text_field :attitude
+  = f.label :occupation
+  = f.text_field :occupation
 
-  = f.label :bigger_picture
-  = f.text_field :bigger_picture
+  %h2 Characteristics
 
-  = f.label :considerations
-  = f.text_area :considerations
+  = f.label :characteristics
+  = f.text_field :characteristics
+
+  = f.label :oppertunities
+  = f.text_field :oppertunities
+
+  = f.label :cautions
+  = f.text_field :cautions
+
+
+  %h2 Detail
+
+  = f.label :background
+  = f.text_field :background
+
+  = f.label :motivation
+  = f.text_field :motivation
 
   = f.fields_for :scalers do |builder|
     = render 'scaler_fields', f: builder

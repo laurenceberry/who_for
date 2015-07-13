@@ -1,4 +1,9 @@
 = form_for([@pack, @pack.profiles.build]) do |f|
+  %br
+  %h3 Basic
+
+  = f.file_field :image
+
 
   = f.label :name
   = f.text_field :name
@@ -9,38 +14,42 @@
   = f.label :age
   = f.text_field :age
 
-  = f.label :occupation
-  = f.text_field :occupation
-
-  = f.label :living_situation
-  = f.text_field :living_situation
+  = f.label :description
+  = f.text_area :description
 
   = f.label :quote
   = f.text_field :quote
 
-  = f.label :description
-  = f.text_area :description
+  = f.label :living_situation
+  = f.text_field :living_situation
 
-  = f.label :ability
-  = f.text_field :ability
+  = f.label :occupation
+  = f.text_field :occupation
 
-  = f.label :aptitude
-  = f.text_field :aptitude
+  %h3 Characteristics
 
-  = f.label :attitude
-  = f.text_field :attitude
+  = f.label :characteristics
+  = f.text_field :characteristics
 
-  = f.label :bigger_picture
-  = f.text_field :bigger_picture
+  = f.label :oppertunities
+  = f.text_field :oppertunities
 
-  = f.label :considerations
-  = f.text_area :considerations
+  = f.label :cautions
+  = f.text_field :cautions
+
+
+  %h3 Detail
+
+  = f.label :background
+  = f.text_field :background
+
+  = f.label :motivation
+  = f.text_field :motivation
 
   = f.fields_for :scalers do |builder|
     = render 'scaler_fields', f: builder
 
-  = link_to_add_fields "Add a scaler", f, :scalers
+  = link_to_add_fields "Add scaler", f, :scalers
 
-  %br/
   = f.submit :class => 'button'
 

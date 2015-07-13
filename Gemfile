@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
 gem 'neat'
 gem 'ffaker'
+gem "paperclip", "~> 4.3"
 
 group :development do
   gem 'spring', '~> 1.3.6'

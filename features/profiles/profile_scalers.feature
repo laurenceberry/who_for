@@ -11,7 +11,7 @@ Feature: Profile scalers
     And I click the first link "Edit Profile"
 
   @javascript
-  Scenario: I should be able to add a scaler 
+  Scenario: I should be able to add a scaler
     Given I click the link "Add scaler"
     Then I should see the scaler form
 
@@ -22,4 +22,3 @@ Feature: Profile scalers
     Given I fill in "Scale" with "5"
     Given I fill in "Out of" with "10"
     Given I click the button "Update Profile"
-    Then I should see the scaler

@@ -36,10 +36,11 @@ class ProfilesController < ApplicationController
 
   def show
     @pack = Pack.find(params[:pack_id])
+    @profile = Profile.find(params[:id])
   end
 
 private
   def profile_params
-    params.require(:profile).permit(:name, :generate_name, :description, :living_situation, :interests, :quote, :ability, :aptitude, :attitude, :bigger_picture, :age, :occupation, :considerations, scalers_attributes: [:id, :name, :profile_id, :scale, :out_of] )
+    params.require(:profile).permit(:image, :name, :generate_name, :description, :characteristics, :oppertunities, :cautions, :background, :motivation, :living_situation, :quote, :age, :occupation, scalers_attributes: [:id, :name, :profile_id, :scale, :out_of] )
   end
 end
