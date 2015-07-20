@@ -1,13 +1,8 @@
-%h1
-  Persona
-.clear
-%br
-
 .overview
   .basics
     %h1=@profile.name
     -if @profile.image?
-      .image= image_tag @profile.image.url
+      .image{:style => "background-image:url(#{@profile.image.url})"}
     .block
       %p
         %span
@@ -27,12 +22,13 @@
           = @profile.living_situation
 
       %i= @profile.pack.name
-      .clear
-      %br
-      =link_to 'Edit Profile', edit_pack_profile_path(@pack, @profile)
-      =link_to 'Delete Profile', [@profile.pack, @profile],
-        method: :delete,
-        data: { confirm: 'Are you sure?' }
+      -if user_signed_in?
+        .clear
+        %br
+        =link_to 'Edit Profile', edit_pack_profile_path(@pack, @profile)
+        =link_to 'Delete Profile', [@profile.pack, @profile],
+          method: :delete,
+          data: { confirm: 'Are you sure?' }
 
   .quote
     %p= @profile.quote
