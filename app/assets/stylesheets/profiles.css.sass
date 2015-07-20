@@ -3,8 +3,10 @@
   %block,
   .block
     background-color: $light_grey
-    margin-bottom: 15px
+    margin-bottom: 0
     padding: 15px
+    border-right: 10px solid white
+    border-top: 10px solid white
     p span
       font-weight: 600
       color: $primary
@@ -13,6 +15,12 @@
     +span-columns(12)
     .basics
       +span-columns(4 of 12)
+      +omega()
+      +media($medium)
+        width: 100%
+        h1
+          border-top: 10px solid white
+
       h1
         @extend %block
         width: 100%
@@ -24,10 +32,10 @@
         color: $light_grey
         margin-top: 0
         padding: 25px
+        border-top: none
 
       .image
         @extend %block
-        min-width: 300px
         padding: 0
         background-color: $primary
         overflow: hidden
@@ -38,9 +46,11 @@
     .quote
       +span-columns(8 of 12)
       @extend %block
-      margin-right: 0
+      border-top: none
+      +media($medium)
+        width: 100%
+        border-top: 10px solid white
 
-      border-top: 2px solid $primary
       p
         color: $primary
         font-weight: 500
@@ -50,7 +60,12 @@
 
     .characteristics
       +span-columns(8 of 12)
+      +media($medium)
+        width: 100%
       .block
-        width: 48%
-        margin-right: 2%
+        width: 50%
+        float: left
+        margin: 0
+        +media($small)
+          width: 100%
 
