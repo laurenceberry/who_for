@@ -1,5 +1,10 @@
 class ProfilesController < ApplicationController
 
+  def new
+    @pack = Pack.find(params[:pack_id])
+    @profile = Profile.new
+  end
+
   def create
     @pack = Pack.find(params[:pack_id])
     @profile = @pack.profiles.create(profile_params)

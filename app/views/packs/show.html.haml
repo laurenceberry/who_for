@@ -1,16 +1,26 @@
 %h1
-  You are designing for
-  %em
-    = @pack.name
+  Persona
+%br
+%h2
+  = @pack.name
+
+-if user_signed_in?
+  = link_to 'Edit', edit_pack_path(@pack)
+  = link_to 'Destroy', pack_path(@pack), |
+      method: :delete,                          |
+      data: { confirm: 'Are you sure?' }        |
+
+
+
 %section
-  %h2
-    Personas in
-    = @pack.name
+  %br
 
   - @pack.profiles.each do |profile|
     %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
       .intro
         .image
+          -if profile.image?
+            = image_tag profile.image.url
         .preview
           %h2=profile.name
           %p= profile.quote
@@ -26,28 +36,9 @@
 
         %p.pack= profile.pack.name
 
-        / - if profile.scalers
-        /   - profile.scalers.each do |scaler|
-        /     = scaler.name
-
-
-        / =link_to 'Edit Profile', edit_pack_profile_path(@pack, profile)
-        / =link_to 'Delete Profile', [profile.pack, profile],
-        /   method: :delete,
-        /   data: { confirm: 'Are you sure?' }
-
 %section.new
-  %hr
-  %br
-
-  %h2
-    Add a persona to
-    = @pack.name
-
-  = render 'profiles/create_form'
-
-  = link_to 'Edit', edit_pack_path(@pack)
-  = link_to 'Destroy', pack_path(@pack), |
-      method: :delete,                          |
-      data: { confirm: 'Are you sure?' }        |
-
+  %a.card.add{:href => new_pack_profile_path(@pack)}
+    .intro
+      .preview
+        .image
+        %h3 Add new persona

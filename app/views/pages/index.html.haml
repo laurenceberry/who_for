@@ -1,4 +1,4 @@
-%h1 Who are you designing for?
+%h1 Persona
 %br
 
 %section.featured
@@ -9,6 +9,8 @@
       %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
         .intro
           .image
+            -if profile.image?
+              = image_tag profile.image.url
           .preview
             %h2=profile.name
             %p= profile.quote
@@ -21,24 +23,11 @@
             %span
               Occupation:
             = profile.occupation
-        - unless profile.scalers.blank?
-          - profile.scalers.each do |scaler|
-            .block.grid-item
-              %h2= scaler.name
-              %p
-                = scaler.scale
-                \/
-                = scaler.out_of
+
           %p.pack= profile.pack.name
 
 %section.packs
   %h2 Packs
-
-  %a.card.add{:href => new_pack_path}
-    .intro
-      .preview
-        .image
-        %h3 Add new pack
 
   - @packs.each do |pack|
     %a.card.pack{ href: pack_path(pack) }
@@ -47,11 +36,17 @@
           .image
           %h3= pack.name
 
-  -unless @user
+  -if user_signed_in?
+    %a.card.add{:href => new_pack_path}
+      .intro
+        .preview
+          .image
+          %h3 Add new pack
+  -else
+
     %h3
-      - if !user_signed_in?
-        =link_to 'Sign in', new_user_session_path
-        to create your own decks
+      =link_to 'Sign in', new_user_session_path
+      to create your own decks
 
 
 

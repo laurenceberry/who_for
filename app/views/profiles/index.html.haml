@@ -9,12 +9,5 @@
     %p= profile.description
     %p= profile.living_situation
     %p= profile.quote
-    - unless @profile.scalers.blank?
-      - @profile.scalers.each do |scaler|
-        .block.grid-item
-          %h2= scaler.name
-          %p
-            = scaler.scale
-            \/
-            = scaler.out_of
+
     %p.pack= profile.pack
