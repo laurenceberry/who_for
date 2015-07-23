@@ -52,7 +52,6 @@ Then (/^I should no longer see the persona$/) do
 end
 
 Then (/^I should see the updated persona$/) do
-  find(:link, 'Back').click
   page.has_text?(@name)
 end
 
