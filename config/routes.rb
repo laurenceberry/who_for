@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :profile_quotes
+
   resources :profile_scalers
 
   devise_for :users

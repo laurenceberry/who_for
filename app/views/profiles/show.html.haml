@@ -76,3 +76,7 @@
             \/
             = scaler.out_of
 
+    - unless @profile.quotes.blank?
+      - @profile.quotes.each do |q|
+        .block.grid-item
+          %blockquote= q.quote

@@ -1,0 +1,23 @@
+%h1 Listing profile_quotes
+
+%table
+  %thead
+    %tr
+      %th Quote
+      %th Profile
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @profile_quotes.each do |profile_quote|
+      %tr
+        %td= profile_quote.quote
+        %td= profile_quote.profile
+        %td= link_to 'Show', profile_quote
+        %td= link_to 'Edit', edit_profile_quote_path(profile_quote)
+        %td= link_to 'Destroy', profile_quote, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Profile quote', new_profile_quote_path

@@ -50,5 +50,10 @@
 
   = link_to_add_fields "Add scaler", f, :scalers
 
+  = f.fields_for :quotes do |builder|
+    = render 'quote_fields', f: builder
+
+  = link_to_add_fields "Add quote", f, :quotes
+
   = f.submit :class => 'button'
 
