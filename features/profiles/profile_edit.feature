@@ -14,5 +14,5 @@ Feature: Edit a profile
 
   Scenario: Edit a persona
     Given I edit the profile fields
+    And I click on the persona
     Then I should see the updated persona
-

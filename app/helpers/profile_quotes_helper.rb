@@ -1,0 +1,2 @@
+module ProfileQuotesHelper
+end

@@ -25,6 +25,12 @@
   = f.label :occupation
   = f.text_field :occupation
 
+  = f.fields_for :basic_repeatables do |builder|
+    = render 'basic_repeatable_fields', f: builder
+
+  = link_to_add_fields "Add more basic information", f, :basic_repeatables
+
+
   %h2 Characteristics
 
   = f.label :characteristics
@@ -35,6 +41,12 @@
 
   = f.label :cautions
   = f.text_field :cautions
+
+  = f.fields_for :characteristic_repeatables do |builder|
+    = render 'characteristic_repeatable_fields', f: builder
+
+  = link_to_add_fields "Add more characteristic information", f, :characteristic_repeatables
+
 
 
   %h2 Detail
@@ -49,6 +61,11 @@
     = render 'scaler_fields', f: builder
 
   = link_to_add_fields "Add scaler", f, :scalers
+
+  = f.fields_for :quotes do |builder|
+    = render 'quote_fields', f: builder
+
+  = link_to_add_fields "Add quote", f, :quotes
 
   = f.submit :class => 'button'
 

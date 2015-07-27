@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Quote:
+  = @profile_quote.quote
+%p
+  %b Profile:
+  = @profile_quote.profile
+
+= link_to 'Edit', edit_profile_quote_path(@profile_quote)
+\|
+= link_to 'Back', profile_quotes_path
