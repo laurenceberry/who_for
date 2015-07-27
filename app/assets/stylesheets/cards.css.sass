@@ -1,39 +1,39 @@
-.cards
-  +span-columns(12)
-
 .card
-  width: 31.76157%
-  margin-right: 2%
-  float: left
+  +span-columns(4 of 12)
+  +omega(4n)
   margin-bottom: 15px
+  position: relative
   background-color: $light_grey
-  &:nth-child(3n)
-    margin-right: 0
   +media($medium)
+    +span-columns(6 of 12)
+    +omega(1n)
+  +media($small)
     width: 100%
+
   text-decoration: none
   &:hover
     a
       text-decoration: none
 
   .intro, .basics, .add
-    width: 100%
-    float: left
+    +span-columns(4 of 4)
     position: relative
     padding: 5px
     .image
-      width: 24%
+      +span-columns(1 of 4)
       position: absolute
       top: 0
       bottom: 0
       left: 0
       background-color: $primary
       overflow: hidden
-      background-size: cover
+      img
+        width: 100%
+        min-width: 100%
+        min-height: 100%
     .preview
-      width: 74%
-      margin-left: 26%
-      float: left
+      +span-columns(3 of 4)
+      +shift(1 of 4)
       p
         font-weight: 400
 

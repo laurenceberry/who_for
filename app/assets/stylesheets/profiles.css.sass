@@ -17,12 +17,10 @@
       +span-columns(4 of 12)
       +omega()
       +media($medium)
-        +span-columns(6 of 12)
-        +omega()
+        width: 100%
         h1
           border-top: 10px solid white
-      +media($small)
-        width: 100%
+
       h1
         @extend %block
         width: 100%
@@ -41,19 +39,15 @@
         padding: 0
         background-color: $primary
         overflow: hidden
-        background-size: cover
-        height: 300px
-        +media($small)
-          height: 400px
+        img
+          height: auto
+          width: 325px
 
     .quote
       +span-columns(8 of 12)
       @extend %block
       border-top: none
       +media($medium)
-        +span-columns(6 of 12)
-        +omega()
-      +media($small)
         width: 100%
         border-top: 10px solid white
 
@@ -67,14 +61,11 @@
     .characteristics
       +span-columns(8 of 12)
       +media($medium)
-        +span-columns(6 of 12)
-        +omega()
-      +media($small)
         width: 100%
       .block
         width: 50%
         float: left
         margin: 0
-        +media($medium)
+        +media($small)
           width: 100%
 

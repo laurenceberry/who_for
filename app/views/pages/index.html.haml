@@ -1,48 +1,52 @@
--unless user_signed_in?
-  %h3
-    =link_to 'Sign in', new_user_session_path
-    to create your own personas
-  %br
-  %hr
+%h1 Persona
+%br
 
 %section.featured
+  %h2 Random personas
 
-  %h1 Random personas
-  .cards
-    - @packs.each do |pack|
-      - pack.profiles.each do |profile|
-        %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
-          .intro
-            .image{:style => "background-image:url(#{profile.image.url})"}
-            .preview
-              %h2=profile.name
-              %p= profile.quote
-          .basics
-            %p
-              %span
-                Age:
-              =profile.age
-            %p
-              %span
-                Occupation:
-              = profile.occupation
+  - @packs.each do |pack|
+    - pack.profiles.each do |profile|
+      %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
+        .intro
+          .image
+            -if profile.image?
+              = image_tag profile.image.url
+          .preview
+            %h2=profile.name
+            %p= profile.quote
+        .basics
+          %p
+            %span
+              Age:
+            =profile.age
+          %p
+            %span
+              Occupation:
+            = profile.occupation
 
-            %p.pack= profile.pack.name
-%hr
+          %p.pack= profile.pack.name
+
 %section.packs
-  %h1 Packs
-  .cards
-    - @packs.each do |pack|
-      %a.card.pack{ href: pack_path(pack) }
-        .intro
-          .preview
-            .image
-            %h3= pack.name
+  %h2 Packs
 
-    -if user_signed_in?
-      %a.card.add{:href => new_pack_path}
-        .intro
-          .preview
-            .image
-            %h3 Add new pack
+  - @packs.each do |pack|
+    %a.card.pack{ href: pack_path(pack) }
+      .intro
+        .preview
+          .image
+          %h3= pack.name
+
+  -if user_signed_in?
+    %a.card.add{:href => new_pack_path}
+      .intro
+        .preview
+          .image
+          %h3 Add new pack
+  -else
+
+    %h3
+      =link_to 'Sign in', new_user_session_path
+      to create your own decks
+
+
 

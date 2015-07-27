@@ -1,40 +1,44 @@
-%section
-  %h1
-    = @pack.name
-
-  -if user_signed_in?
-    = link_to 'Edit', edit_pack_path(@pack)
-    = link_to 'Destroy', pack_path(@pack), |
-        method: :delete,                          |
-        data: { confirm: 'Are you sure?' }        |
-
-  .clear
-
-  .cards
-    - @pack.profiles.each do |profile|
-      %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
-        .intro
-          .image{:style => "background-image:url(#{profile.image.url})"}
-          .preview
-            %h2=profile.name
-            %p= profile.quote
-        .basics
-          %p
-            %span
-              Age:
-            =profile.age
-          %p
-            %span
-              Occupation:
-            = profile.occupation
-
-          %p.pack= profile.pack.name
+%h1
+  Persona
+%br
+%h2
+  = @pack.name
 
 -if user_signed_in?
+  = link_to 'Edit', edit_pack_path(@pack)
+  = link_to 'Destroy', pack_path(@pack), |
+      method: :delete,                          |
+      data: { confirm: 'Are you sure?' }        |
 
-  %section.new
-    %a.card.add{:href => new_pack_profile_path(@pack)}
+
+
+%section
+  %br
+
+  - @pack.profiles.each do |profile|
+    %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
       .intro
+        .image
+          -if profile.image?
+            = image_tag profile.image.url
         .preview
-          .image
-          %h3 Add new persona
+          %h2=profile.name
+          %p= profile.quote
+      .basics
+        %p
+          %span
+            Age:
+          =profile.age
+        %p
+          %span
+            Occupation:
+          = profile.occupation
+
+        %p.pack= profile.pack.name
+
+%section.new
+  %a.card.add{:href => new_pack_profile_path(@pack)}
+    .intro
+      .preview
+        .image
+        %h3 Add new persona
