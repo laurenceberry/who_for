@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @profile_characteristic_repeatable.name
+%p
+  %b Content:
+  = @profile_characteristic_repeatable.content
+%p
+  %b Profile:
+  = @profile_characteristic_repeatable.profile
+
+= link_to 'Edit', edit_profile_characteristic_repeatable_path(@profile_characteristic_repeatable)
+\|
+= link_to 'Back', profile_characteristic_repeatables_path

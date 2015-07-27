@@ -1,0 +1,2 @@
+module ProfileCharacteristicRepeatablesHelper
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727103351) do
+ActiveRecord::Schema.define(version: 20150727105413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 20150727103351) do
   end
 
   add_index "profile_basic_repeatables", ["profile_id"], name: "index_profile_basic_repeatables_on_profile_id", using: :btree
+
+  create_table "profile_characteristic_repeatables", force: true do |t|
+    t.string   "name"
+    t.string   "content"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profile_characteristic_repeatables", ["profile_id"], name: "index_profile_characteristic_repeatables_on_profile_id", using: :btree
 
   create_table "profile_quotes", force: true do |t|
     t.text     "quote"

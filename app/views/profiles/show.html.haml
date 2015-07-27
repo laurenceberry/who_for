@@ -63,6 +63,12 @@
         %h2 Cautions
         %p= @profile.cautions
 
+    - unless @profile.characteristic_repeatables.blank?
+      - @profile.characteristic_repeatables.each do |cr|
+        .block.grid-item
+          %h2= cr.name
+          %p= cr.content
+
     - unless @profile.background.blank?
       .block.grid-item
         %h2 Background
