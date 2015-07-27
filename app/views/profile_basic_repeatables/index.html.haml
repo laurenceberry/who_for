@@ -1,0 +1,25 @@
+%h1 Listing profile_basic_repeatables
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Content
+      %th Profile
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @profile_basic_repeatables.each do |profile_basic_repeatable|
+      %tr
+        %td= profile_basic_repeatable.name
+        %td= profile_basic_repeatable.content
+        %td= profile_basic_repeatable.profile
+        %td= link_to 'Show', profile_basic_repeatable
+        %td= link_to 'Edit', edit_profile_basic_repeatable_path(profile_basic_repeatable)
+        %td= link_to 'Destroy', profile_basic_repeatable, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Profile basic repeatable', new_profile_basic_repeatable_path

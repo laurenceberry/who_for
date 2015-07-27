@@ -4,11 +4,13 @@ class Profile < ActiveRecord::Base
   belongs_to :pack
   has_many :scalers, class_name: "ProfileScaler"
   has_many :quotes, class_name: "ProfileQuote"
+  has_many :basic_repeatables, class_name: "ProfileBasicRepeatable"
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => ""
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   accepts_nested_attributes_for :scalers, allow_destroy: true
   accepts_nested_attributes_for :quotes, allow_destroy: true
+  accepts_nested_attributes_for :basic_repeatables, allow_destroy: true
 
   validates :description, presence: true
   validates :age, presence: true, numericality: true

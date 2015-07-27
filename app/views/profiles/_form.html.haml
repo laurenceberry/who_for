@@ -25,6 +25,12 @@
   = f.label :occupation
   = f.text_field :occupation
 
+  = f.fields_for :basic_repeatables do |builder|
+    = render 'basic_repeatable_fields', f: builder
+
+  = link_to_add_fields "Add more basic information", f, :basic_repeatables
+
+
   %h2 Characteristics
 
   = f.label :characteristics

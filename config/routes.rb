@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :profile_basic_repeatables
+
   resources :profile_quotes
 
   resources :profile_scalers

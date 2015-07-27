@@ -26,6 +26,12 @@
             Living situation:
           = @profile.living_situation
 
+      - unless @profile.basic_repeatables.blank?
+        - @profile.basic_repeatables.each do |br|
+          %p
+            %span= br.name + ":"
+            = br.content
+
       %i= @profile.pack.name
       .clear
       %br
