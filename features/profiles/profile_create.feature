@@ -3,6 +3,8 @@ Feature: Create a profile
   I should be able to create a new persona
 
   Background:
+    Given A user exists
+    And I am logged in as a user
     Given There are packs
     Given I visit the homepage
     Given I visit a pack

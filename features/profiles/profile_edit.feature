@@ -3,6 +3,8 @@ Feature: Edit a profile
   I should be able to edit an existing persona
 
   Background:
+    Given A user exists
+    And I am logged in as a user
     Given There are packs
     Given There are profiles
     Given I visit the homepage

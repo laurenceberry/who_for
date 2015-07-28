@@ -4,6 +4,8 @@ Feature: Profile scalers
   To an existing profile
 
   Background:
+    Given A user exists
+    And I am logged in as a user
     Given There are packs
     Given There are profiles
     Given I visit the homepage
