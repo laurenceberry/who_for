@@ -1,5 +1,17 @@
 = form_for([@pack, @profile]) do |f|
 
+
+  - if @profile.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@profile.errors.count, "error")
+        prohibited
+        this article from being saved:
+      %ul
+        - @profile.errors.full_messages.each do |msg|
+          %li= msg
+
+
   %h2 Basic
 
   = f.file_field :image

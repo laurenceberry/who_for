@@ -8,7 +8,13 @@ class ProfilesController < ApplicationController
   def create
     @pack = Pack.find(params[:pack_id])
     @profile = @pack.profiles.create(profile_params)
-    redirect_to pack_path(@pack)
+
+    if @profile.save
+      redirect_to pack_path(@pack)
+    else
+      render 'new'
+    end
+
   end
 
   def edit

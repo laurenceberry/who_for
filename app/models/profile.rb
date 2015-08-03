@@ -15,9 +15,6 @@ class Profile < ActiveRecord::Base
   accepts_nested_attributes_for :basic_repeatables, allow_destroy: true
   accepts_nested_attributes_for :characteristic_repeatables, allow_destroy: true
 
-  validates :description, presence: true
-  validates :age, presence: true, numericality: true
-
   def generate_fake_name
     if self.generate_name?
       self.name = FFaker::Name.name
