@@ -5,6 +5,7 @@
   %br
   %hr
 
+
 %section.featured
 
   %h1 Random personas
@@ -35,8 +36,8 @@
     - @packs.each do |pack|
       %a.card.pack{ href: pack_path(pack) }
         .intro
+          .image{:style => "background-image:url(#{pack.image.url})"}
           .preview
-            .image
             %h3= pack.name
 
     -if user_signed_in?
