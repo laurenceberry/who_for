@@ -8,8 +8,8 @@ class PacksController < ApplicationController
     @pack = Pack.new(pack_params)
 
     if @pack.save
-      redirect_to packs_path
-    else 
+      redirect_to pack_path(@pack)
+    else
       render 'new'
     end
   end
@@ -27,7 +27,7 @@ class PacksController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def destroy
     @pack = Pack.find(params[:id])
     @pack.destroy
