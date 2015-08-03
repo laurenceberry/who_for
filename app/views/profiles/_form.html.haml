@@ -46,13 +46,13 @@
   %h2 Characteristics
 
   = f.label :characteristics
-  = f.text_field :characteristics
+  = f.text_area :characteristics
 
   = f.label :oppertunities
-  = f.text_field :oppertunities
+  = f.text_area :oppertunities
 
   = f.label :cautions
-  = f.text_field :cautions
+  = f.text_area :cautions
 
   = f.fields_for :characteristic_repeatables do |builder|
     = render 'characteristic_repeatable_fields', f: builder
@@ -64,10 +64,10 @@
   %h2 Detail
 
   = f.label :background
-  = f.text_field :background
+  = f.text_area :background
 
   = f.label :motivation
-  = f.text_field :motivation
+  = f.text_area :motivation
 
   = f.fields_for :scalers do |builder|
     = render 'scaler_fields', f: builder
