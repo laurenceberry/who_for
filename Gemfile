@@ -17,6 +17,7 @@ gem 'neat'
 gem 'ffaker'
 gem "paperclip", "~> 4.3"
 gem "redcarpet"
+gem 'aws-sdk'
 
 group :development do
   gem 'spring', '~> 1.3.6'
