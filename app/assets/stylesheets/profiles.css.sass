@@ -1,4 +1,4 @@
-#show
+#show, #edit, #new
 
   %block,
   .block
@@ -10,6 +10,11 @@
     p span
       font-weight: 600
       color: $primary
+
+  .overview, .characteristics, .detail, .call-to-action
+    .block
+      ul, li
+        margin-top: 0
 
   .overview
     +span-columns(12)
@@ -64,17 +69,46 @@
         line-height: 1.25em
         text-align: center
 
-    .characteristics
+    .right
       +span-columns(8 of 12)
       +media($medium)
         +span-columns(6 of 12)
         +omega()
       +media($small)
         width: 100%
-      .block
-        width: 50%
-        float: left
-        margin: 0
-        +media($medium)
+      .characteristics, .detail
+        +span-columns(8 of 8)
+        margin-bottom: 25px
+        +media($small)
           width: 100%
+        p
+          white-space: pre-line
+        .block
+          width: 50%
+          float: left
+          margin: 0
+          +media($medium)
+            width: 100%
 
+.title-block
+  @extend %block
+  width: 100%
+  background-color: transparent !important
+  border-top: 1px solid $primary !important
+  text-align: center
+  padding: 0 !important
+  margin-top: 10px
+  float: left
+
+
+#edit, #new
+  fieldset
+    margin-bottom: 15px
+  .overview
+    .basics .block
+      border-top: 0
+    .right
+      .characteristics, .detail
+        width: 100%
+        .block
+          width: 100%

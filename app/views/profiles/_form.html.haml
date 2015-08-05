@@ -2,7 +2,7 @@
 
 
   - if @profile.errors.any?
-    #error_explanation
+    .block#error_explanation
       %h2
         = pluralize(@profile.errors.count, "error")
         prohibited
@@ -11,73 +11,83 @@
         - @profile.errors.full_messages.each do |msg|
           %li= msg
 
+  .overview
+    .basics
+      .block
 
-  %h2 Basic
+        = f.label :name
+        = f.text_field :name
 
-  = f.file_field :image
+        = f.label :generate_name
+        = f.check_box :generate_name
 
-  = f.label :name
-  = f.text_field :name
+        = f.label :age
+        = f.text_field :age
 
-  = f.label :generate_name
-  = f.check_box :generate_name
+        = f.file_field :image
 
-  = f.label :age
-  = f.text_field :age
+        = f.label :description
+        = f.text_area :description
 
-  = f.label :description
-  = f.text_area :description
+        = f.label :living_situation
+        = f.text_field :living_situation
 
-  = f.label :quote
-  = f.text_field :quote
+        = f.label :occupation
+        = f.text_field :occupation
 
-  = f.label :living_situation
-  = f.text_field :living_situation
+        = f.fields_for :basic_repeatables do |builder|
+          = render 'basic_repeatable_fields', f: builder
 
-  = f.label :occupation
-  = f.text_field :occupation
+        = link_to_add_fields "Add more basic information", f, :basic_repeatables
+        .clear
+        %br
+        = f.fields_for :scalers do |builder|
+          = render 'scaler_fields', f: builder
+        = link_to_add_fields "Add scaler", f, :scalers
+        .clear
+        %br
+        = f.fields_for :quotes do |builder|
+          = render 'quote_fields', f: builder
 
-  = f.fields_for :basic_repeatables do |builder|
-    = render 'basic_repeatable_fields', f: builder
+        = link_to_add_fields "Add quote", f, :quotes
 
-  = link_to_add_fields "Add more basic information", f, :basic_repeatables
+      %br
+      .block= f.submit :class => 'button full'
+      %br
 
-
-  %h2 Characteristics
-
-  = f.label :characteristics
-  = f.text_area :characteristics
-
-  = f.label :oppertunities
-  = f.text_area :oppertunities
-
-  = f.label :cautions
-  = f.text_area :cautions
-
-  = f.fields_for :characteristic_repeatables do |builder|
-    = render 'characteristic_repeatable_fields', f: builder
-
-  = link_to_add_fields "Add more characteristic information", f, :characteristic_repeatables
+    .quote
+      = f.label :quote
+      = f.text_field :quote
 
 
 
-  %h2 Detail
+    .right
+      .characteristics
+        .block
+          %h2 Characteristics
 
-  = f.label :background
-  = f.text_area :background
+          = f.label :characteristics
+          = f.text_area :characteristics
 
-  = f.label :motivation
-  = f.text_area :motivation
+          = f.label :oppertunities, "Opportunities"
+          = f.text_area :oppertunities
 
-  = f.fields_for :scalers do |builder|
-    = render 'scaler_fields', f: builder
+          = f.label :cautions
+          = f.text_area :cautions
 
-  = link_to_add_fields "Add scaler", f, :scalers
+          = f.fields_for :characteristic_repeatables do |builder|
+            = render 'characteristic_repeatable_fields', f: builder
 
-  = f.fields_for :quotes do |builder|
-    = render 'quote_fields', f: builder
+          = link_to_add_fields "Add more characteristic information", f, :characteristic_repeatables
 
-  = link_to_add_fields "Add quote", f, :quotes
+      .detail
+        .block
+          %h2 Detail
+          = f.label :background
+          = f.text_area :background
 
-  = f.submit :class => 'button'
+          = f.label :motivation
+          = f.text_area :motivation
+
+
 

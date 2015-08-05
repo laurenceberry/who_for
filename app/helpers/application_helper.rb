@@ -9,6 +9,27 @@ module ApplicationHelper
              :role  => "body" }
   end
 
+  def markdown(text)
+    options = {
+      filter_html:     true,
+      hard_wrap:       true,
+      link_attributes: { rel: 'nofollow', target: "_blank" },
+      space_after_headers: true,
+      fenced_code_blocks: true
+    }
+
+    extensions = {
+      autolink:           true,
+      superscript:        true,
+      disable_indented_code_blocks: true
+    }
+
+    renderer = Redcarpet::Render::HTML.new(options)
+    markdown = Redcarpet::Markdown.new(renderer, extensions)
+
+    markdown.render(text).html_safe
+  end
+
   # Helper to render a repeating fields fieldset and add a button to add and remove dynamically.
   def link_to_add_fields(name, f, association)
     new_object = f.object.send(association).klass.new

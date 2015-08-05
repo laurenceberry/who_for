@@ -1,3 +1,4 @@
+
 .overview
   .basics
     %h1=@profile.name
@@ -20,64 +21,19 @@
           %span
             Living situation:
           = @profile.living_situation
+      %i= @profile.pack.name
 
-      - unless @profile.basic_repeatables.blank?
+    - unless @profile.basic_repeatables.blank?
+      .block
         - @profile.basic_repeatables.each do |br|
           %p
             %span= br.name + ":"
             = br.content
 
-      %i= @profile.pack.name
-      -if user_signed_in?
-        .clear
-        %br
-        =link_to 'Edit Profile', edit_pack_profile_path(@pack, @profile)
-        =link_to 'Delete Profile', [@profile.pack, @profile],
-          method: :delete,
-          data: { confirm: 'Are you sure?' }
-
-  .quote
-    %p= @profile.quote
-  .characteristics.grid.js-masonry
-    - unless @profile.description.blank?
-      .block.grid-item
-        %h2 Description
-        %p= @profile.description
-
-    - unless @profile.characteristics.blank?
-      .block.grid-item
-        %h2 Characteristics
-        %p= @profile.characteristics
-
-    - unless @profile.oppertunities.blank?
-      .block.grid-item
-        %h2 Oppertunities
-        %p= @profile.oppertunities
-
-    - unless @profile.cautions.blank?
-      .block.grid-item
-        %h2 Cautions
-        %p= @profile.cautions
-
-    - unless @profile.characteristic_repeatables.blank?
-      - @profile.characteristic_repeatables.each do |cr|
-        .block.grid-item
-          %h2= cr.name
-          %p= cr.content
-
-    - unless @profile.background.blank?
-      .block.grid-item
-        %h2 Background
-        %p= @profile.background
-
-    - unless @profile.motivation.blank?
-      .block.grid-item
-        %h2 Motivation
-        %p= @profile.motivation
 
     - unless @profile.scalers.blank?
-      - @profile.scalers.each do |scaler|
-        .block.grid-item
+      .block
+        - @profile.scalers.each do |scaler|
           %h2= scaler.name
           %p
             = scaler.scale
@@ -85,6 +41,61 @@
             = scaler.out_of
 
     - unless @profile.quotes.blank?
-      - @profile.quotes.each do |q|
-        .block.grid-item
+      .block
+        - @profile.quotes.each do |q|
           %blockquote= q.quote
+
+    -if user_signed_in?
+      .block.no-print
+        =link_to 'Edit Profile', edit_pack_profile_path(@pack, @profile)
+        =link_to 'Delete Profile', [@profile.pack, @profile],
+          method: :delete,
+          data: { confirm: 'Are you sure?' }
+
+  .quote
+    %p= @profile.quote
+  .right
+    .title-block
+      %h2 characteristics
+    .characteristics.grid.js-masonry
+      - unless @profile.description.blank?
+        .block.grid-item
+          %h2 Description
+          = markdown(@profile.description)
+
+      - unless @profile.characteristics.blank?
+        .block.grid-item
+          %h2 Characteristics
+          = markdown(@profile.characteristics)
+
+      - unless @profile.oppertunities.blank?
+        .block.grid-item
+          %h2 Opportunities
+          =markdown(@profile.oppertunities)
+
+      - unless @profile.cautions.blank?
+        .block.grid-item
+          %h2 Cautions
+          = markdown(@profile.cautions)
+
+      - unless @profile.characteristic_repeatables.blank?
+        - @profile.characteristic_repeatables.each do |cr|
+          .block.grid-item
+            %h2= cr.name
+            = markdown(cr.content)
+
+
+    .title-block
+      %h2 Details
+    .detail.grid.js-masonry
+      - unless @profile.background.blank?
+        .block.grid-item
+          %h2 Background
+          = markdown(@profile.background)
+
+      - unless @profile.motivation.blank?
+        .block.grid-item
+          %h2 Motivation
+          = markdown(@profile.motivation)
+
+
