@@ -4,10 +4,30 @@
     %title WhoFor
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js"}
     = stylesheet_link_tag    'print', :media => 'print'
     = csrf_meta_tags
   %body{body_tags}
+
+
+    :javascript
+      $(document).ready(function() {
+        return $('.grid').masonry({
+          percentPosition: true,
+          itemSelector: '.grid-item'
+        });
+      });
+
+      $(document).ready(function() {
+        return $('.scaler').each(function() {
+          var percentage, quantity, total;
+          quantity = $(this).find('.quantity').text();
+          total = $(this).find('.total').text();
+          percentage = Math.floor(quantity / total * 100);
+          return $(this).find('.scale-background .scale').css("width", percentage + "%");
+        });
+      });
+
+
     = render("shared/nav")
     %main
       = yield
