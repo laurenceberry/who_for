@@ -12,5 +12,4 @@ $(document).ready ->
     total = $(this).find('.total').text()
     percentage = Math.floor(quantity / total * 100)
     $(this).find('.scale').css( "width", percentage + "%" )
-    console.log percentage
 
