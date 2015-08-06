@@ -6,13 +6,16 @@ title
 body
   font-size: 11px
   font-family: helvetica, arial, sans-serif
+  -webkit-print-color-adjust: exact
 
 header
   display: none
 
 .similar-places, .modal, footer, header, .primary-header
-  display: none
-
+  display: none !important
+.image
+  background-position: center
+  max-height: 200px !important
 .block
   position: static !important
   display: inline-block !important
