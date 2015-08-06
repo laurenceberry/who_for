@@ -78,7 +78,6 @@
         width: 100%
       .characteristics, .detail
         +span-columns(8 of 8)
-        margin-bottom: 25px
         +media($small)
           width: 100%
         p
@@ -93,13 +92,18 @@
 .title-block
   @extend %block
   width: 100%
-  background-color: transparent !important
-  border-top: 1px solid $primary !important
-  text-align: center
-  padding: 0 !important
-  margin-top: 10px
-  float: left
+  background-color: darken($dark_grey, 30%) !important
+  color: #fff
+  padding: 0 15px !important
+  display: inline-block
+  h2
+    margin: 10px 0
 
+.scaler
+  .scale
+    height: 15px
+    border-radius: 10px
+    background-color: $primary
 
 #edit, #new
   fieldset

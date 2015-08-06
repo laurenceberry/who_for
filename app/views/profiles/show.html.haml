@@ -4,6 +4,8 @@
     %h1=@profile.name
     -if @profile.image?
       .image{:style => "background-image:url(#{@profile.image.url})"}
+    .title-block
+      %h2 Basic info
     .block
       %p
         %span
@@ -33,11 +35,15 @@
     - unless @profile.scalers.blank?
       .block
         - @profile.scalers.each do |scaler|
-          %h2= scaler.name
-          %p
-            = scaler.scale
-            \/
-            = scaler.out_of
+          .scaler
+            %h2= scaler.name
+            .scale
+            %p
+              %span.quantity= scaler.scale
+              %span /
+              %span.total= scaler.out_of
+              .clear
+              %br
 
     - unless @profile.quotes.blank?
       .block
@@ -61,7 +67,7 @@
     %p= @profile.quote
   .right
     .title-block
-      %h2 characteristics
+      %h2 Characteristics
     .characteristics.grid.js-masonry
       - unless @profile.description.blank?
         .block.grid-item
