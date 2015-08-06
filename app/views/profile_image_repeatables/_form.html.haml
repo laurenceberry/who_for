@@ -1,0 +1,10 @@
+= form_for @profile_image_repeatable do |f|
+  - if @profile_image_repeatable.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@profile_image_repeatable.errors.count, "error")} prohibited this profile_image_repeatable from being saved:"
+      %ul
+        - @profile_image_repeatable.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

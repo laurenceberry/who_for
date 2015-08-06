@@ -1,0 +1,9 @@
+%fieldset
+  %h3 Add an Image
+  - if f.object.new_record?
+    = f.file_field(:repeatable_image)
+  - else
+    = f.object.repeatable_image_file_name
+    = f.file_field(:repeatable_image)
+    = f.hidden_field :_destroy
+    = link_to 'remove', '#', class: "remove_field"

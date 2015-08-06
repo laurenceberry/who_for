@@ -1,6 +1,5 @@
 = form_for([@pack, @profile]) do |f|
 
-
   - if @profile.errors.any?
     .block#error_explanation
       %h2
@@ -51,6 +50,10 @@
 
         = link_to_add_fields "Add quote", f, :quotes
 
+        = f.fields_for :images do |builder|
+          = render 'image_fields', f: builder
+        = link_to_add_fields "Add another image", f, :images
+
       %br
       .block= f.submit :class => 'button full'
       %br
@@ -58,8 +61,6 @@
     .quote
       = f.label :quote
       = f.text_field :quote
-
-
 
     .right
       .characteristics

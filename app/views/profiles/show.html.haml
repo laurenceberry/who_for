@@ -30,7 +30,6 @@
             %span= br.name + ":"
             = br.content
 
-
     - unless @profile.scalers.blank?
       .block
         - @profile.scalers.each do |scaler|
@@ -45,12 +44,18 @@
         - @profile.quotes.each do |q|
           %blockquote= q.quote
 
+    - unless @profile.images.blank?
+      - @profile.images.each do |i|
+        .image{:style => "background-image:url(#{i.repeatable_image.url})"}
+
+
     -if user_signed_in?
-      .block.no-print
-        =link_to 'Edit Profile', edit_pack_profile_path(@pack, @profile)
-        =link_to 'Delete Profile', [@profile.pack, @profile],
-          method: :delete,
-          data: { confirm: 'Are you sure?' }
+      .clear
+      %br
+      =link_to 'Edit Profile', edit_pack_profile_path(@pack, @profile)
+      =link_to 'Delete Profile', [@profile.pack, @profile],
+        method: :delete,
+        data: { confirm: 'Are you sure?' }
 
   .quote
     %p= @profile.quote

@@ -1,0 +1,19 @@
+%h1 Listing profile_image_repeatables
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @profile_image_repeatables.each do |profile_image_repeatable|
+      %tr
+        %td= link_to 'Show', profile_image_repeatable
+        %td= link_to 'Edit', edit_profile_image_repeatable_path(profile_image_repeatable)
+        %td= link_to 'Destroy', profile_image_repeatable, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Profile image repeatable', new_profile_image_repeatable_path
