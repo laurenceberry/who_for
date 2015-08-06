@@ -36,7 +36,7 @@
       .block
         - @profile.scalers.each do |scaler|
           .scaler
-            %h2= scaler.name
+            %h3= scaler.name
             .scale-background
               .scale
             %p
@@ -72,28 +72,28 @@
     .characteristics.grid.js-masonry
       - unless @profile.description.blank?
         .block.grid-item
-          %h2 Description
+          %h3 Description
           = markdown(@profile.description)
 
       - unless @profile.characteristics.blank?
         .block.grid-item
-          %h2 Characteristics
+          %h3 Characteristics
           = markdown(@profile.characteristics)
 
       - unless @profile.oppertunities.blank?
         .block.grid-item
-          %h2 Opportunities
+          %h3 Opportunities
           =markdown(@profile.oppertunities)
 
       - unless @profile.cautions.blank?
         .block.grid-item
-          %h2 Cautions
+          %h3 Cautions
           = markdown(@profile.cautions)
 
       - unless @profile.characteristic_repeatables.blank?
         - @profile.characteristic_repeatables.each do |cr|
           .block.grid-item
-            %h2= cr.name
+            %h3= cr.name
             = markdown(cr.content)
 
 
@@ -102,12 +102,12 @@
     .detail.grid.js-masonry
       - unless @profile.background.blank?
         .block.grid-item
-          %h2 Background
+          %h3 Background
           = markdown(@profile.background)
 
       - unless @profile.motivation.blank?
         .block.grid-item
-          %h2 Motivation
+          %h3 Motivation
           = markdown(@profile.motivation)
 
 
