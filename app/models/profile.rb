@@ -10,6 +10,7 @@ class Profile < ActiveRecord::Base
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => ""
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_size :image, less_than: 5.megabytes
 
   accepts_nested_attributes_for :scalers, allow_destroy: true
   accepts_nested_attributes_for :quotes, allow_destroy: true
