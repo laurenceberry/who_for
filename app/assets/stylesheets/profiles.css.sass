@@ -14,7 +14,7 @@
     h3
       margin-top: 5px
 
-  .overview, .characteristics, .detail, .call-to-action
+  .overview, .characteristics, .detail, .call-to-action, .summary
     .block
       ul, li
         margin-top: 0
@@ -79,7 +79,7 @@
         +omega()
       +media($small)
         width: 100%
-      .characteristics, .detail
+      .characteristics, .detail, .summary
         +span-columns(8 of 8)
         +media($small)
           width: 100%
@@ -93,7 +93,7 @@
           border-bottom: 1px solid $grey
           +media($medium)
             width: 100%
-      .detail .block
+      .detail .block, .summary .block
         width: 100%
 
 .title-block
@@ -105,6 +105,8 @@
   display: inline-block
   h2
     margin: 10px 0
+.cta
+  background-color: $primary !important
 
 .scaler
   .scale-background
@@ -123,7 +125,7 @@
     .basics .block
       border-top: 0
     .right
-      .characteristics, .detail
+      .characteristics, .detail, .summary
         width: 100%
         .block
           width: 100%

@@ -109,4 +109,9 @@
           %h3 Motivation
           = markdown(@profile.motivation)
 
-
+    - unless @profile.summary.blank?
+      .title-block.cta
+        %h2 Summary
+      .block.grid-item
+        %h3 To convince them
+        = markdown(@profile.summary)
