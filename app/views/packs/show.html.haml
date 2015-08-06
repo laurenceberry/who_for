@@ -21,14 +21,16 @@
             %h2=profile.name
             %p= profile.quote
         .basics
-          %p
-            %span
-              Age:
-            =profile.age
-          %p
-            %span
-              Occupation:
-            = profile.occupation
+          -unless profile.age.blank?
+            %p
+              %span
+                Age:
+              =profile.age
+          -unless profile.occupation.blank?
+            %p
+              %span
+                Occupation:
+              = profile.occupation
 
           %p.pack= profile.pack.name
 
