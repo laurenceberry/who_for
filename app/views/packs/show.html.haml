@@ -12,9 +12,9 @@
 
   .clear
 
-  .cards
+  .cards.grid.js-masonry
     - @pack.profiles.each do |profile|
-      %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
+      %a.card.profile.view.grid-item{href: pack_profile_path(profile.pack, profile)}
         .intro
           .image{:style => "background-image:url(#{profile.image.url})"}
           .preview

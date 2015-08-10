@@ -9,10 +9,10 @@
 %section.featured
 
   %h1 Random personas
-  .cards
+  .cards.grid.js-masonry
     - @packs.each do |pack|
       - pack.profiles.each do |profile|
-        %a.card.profile.view{href: pack_profile_path(profile.pack, profile)}
+        %a.card.profile.view.grid-item{href: pack_profile_path(profile.pack, profile)}
           .intro
             .image{:style => "background-image:url(#{profile.image.url})"}
             .preview
@@ -34,16 +34,16 @@
 %hr
 %section.packs
   %h1 Packs
-  .cards
+  .cards.grid.js-masonry
     - @packs.each do |pack|
-      %a.card.pack{ href: pack_path(pack) }
+      %a.card.pack.grid-item{ href: pack_path(pack) }
         .intro
           .image{:style => "background-image:url(#{pack.image.url})"}
           .preview
             %h3= pack.name
 
     -if user_signed_in?
-      %a.card.add{:href => new_pack_path}
+      %a.card.add.grid-item{:href => new_pack_path}
         .intro
           .preview
             .image
