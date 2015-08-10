@@ -9,5 +9,4 @@ class Ability
     can :destroy, Ad do |ad|
     profile.updated_by.to_s == user.id.to_s
 
-  end
 end
