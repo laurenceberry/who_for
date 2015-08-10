@@ -97,3 +97,4 @@
           = f.label :summary, "To convince them"
           = f.text_area :summary
 
+  = f.hidden_field(:updated_by, :value => current_user.id)

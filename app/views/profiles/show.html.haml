@@ -57,12 +57,19 @@
 
     -if user_signed_in?
       .clear
-      %br
+
+      %p.stamp.no_print
+        Updated
+        -unless @updated_by == nil
+          by
+          %span=@updated_by.email
+        on
+        %span=@profile.updated_at.to_s(:short)
+
       =link_to 'Edit Profile', edit_pack_profile_path(@pack, @profile)
       =link_to 'Delete Profile', [@profile.pack, @profile],
         method: :delete,
         data: { confirm: 'Are you sure?' }
-
   .quote
     %p= @profile.quote
   .right

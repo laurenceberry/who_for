@@ -40,3 +40,4 @@ group :test do
   gem 'warden'
   gem 'poltergeist'
 end
+gem 'cancan'

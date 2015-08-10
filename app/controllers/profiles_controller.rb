@@ -49,10 +49,15 @@ class ProfilesController < ApplicationController
   def show
     @pack = Pack.find(params[:pack_id])
     @profile = @pack.profiles.find(params[:id])
+    if @profile.updated_by
+      @updated_by = User.find(@profile.updated_by)
+    else
+      @updated_by = nil
+    end
   end
 
 private
   def profile_params
-    params.require(:profile).permit(:image, :name, :generate_name, :description, :characteristics, :oppertunities, :cautions, :background, :motivation, :living_situation, :quote, :age, :occupation, :summary, scalers_attributes: [:id, :name, :profile_id, :scale, :out_of], quotes_attributes: [:id, :quote, :profile_id], basic_repeatables_attributes: [:id, :name, :content, :profile_id], characteristic_repeatables_attributes: [:id, :name, :content, :profile_id], images_attributes: [:profile_id, :id, :repeatable_image] )
+    params.require(:profile).permit(:updated_by, :image, :name, :generate_name, :description, :characteristics, :oppertunities, :cautions, :background, :motivation, :living_situation, :quote, :age, :occupation, :summary, scalers_attributes: [:id, :name, :profile_id, :scale, :out_of], quotes_attributes: [:id, :quote, :profile_id], basic_repeatables_attributes: [:id, :name, :content, :profile_id], characteristic_repeatables_attributes: [:id, :name, :content, :profile_id], images_attributes: [:profile_id, :id, :repeatable_image] )
   end
 end
