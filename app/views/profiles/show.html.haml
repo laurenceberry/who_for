@@ -29,7 +29,7 @@
         - @profile.basic_repeatables.each do |br|
           %p
             %span= br.name + ":"
-            = br.content
+            = markdown(br.content)
 
     - unless @profile.scalers.blank?
       .block
