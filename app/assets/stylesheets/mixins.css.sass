@@ -7,9 +7,9 @@ $large-plus: new-breakpoint(min-width 992px 8)
 $base-font-size: 15px
 $small-font-size: .9em
 $regular-font-size: 1em
-$medium-font-size: 1.2em
+$medium-font-size: 1.1em
 $large-font-size: 1.6em
-$larger-font-size: 2.5em
+$larger-font-size: 2em
 $display-font-size: 3em
 $mobile-regular-font-size: 1em
 
@@ -17,15 +17,14 @@ $display-font: ginger, serif
 $body-font: latoregular, arial, sans-serif
 
 $max-width: em(1200)
-$body-padding: 1em
+$body-padding: 1em 0
 
 @mixin max-widths
   +outer-container
   max-width: $max-width
   margin: auto
   padding: $body-padding
-  +media($small)
-    padding: 0
+  padding: 0
 
 @mixin clearfix
   &:before

@@ -1,54 +1,57 @@
--unless user_signed_in?
-  %h3
-    =link_to 'Sign in', new_user_session_path
-    to create your own personas
-  %br
-  %hr
+%section.intro
+  .gradient
+
+  .inner
+    %h1 Who are you designing for?
+    %p Create and collaborate sharable, printable profiles of the people you are designing for.
+    %br
+    -unless user_signed_in?
+      %a.button{ href: new_user_registration_path }
+        Sign up to create profiles
 
 
 %section.packs
-  %h1 Packs
-  .cards.grid.js-masonry
-    - @packs.each do |pack|
-      %a.card.pack.grid-item{ href: pack_path(pack) }
-        .intro
-          .image{:style => "background-image:url(#{pack.image.url})"}
-          .preview
-            %h3= pack.name
+  .inner
+    %h2 Packs
+    .cards.grid.js-masonry
+      - @packs.each do |pack|
+        %a.card.pack.grid-item{ href: pack_path(pack) }
+          .intro
+            .image{:style => "background-image:url(#{pack.image.url})"}
+            .preview
+              %h3= pack.name
 
-    -if user_signed_in?
-      %a.card.add.grid-item{:href => new_pack_path}
-        .intro
-          .preview
-            .image
-            %h3 Add new pack
-
-%hr
+      -if user_signed_in?
+        %a.card.add.grid-item{:href => new_pack_path}
+          .intro
+            .preview
+              .image
+              %h3 Add new pack
 
 
 %section.featured
+  .inner
+    %h2 All profiles
+    .cards.grid.js-masonry
+      - @packs.each do |pack|
+        - pack.profiles.each do |profile|
+          %a.card.profile.view.grid-item{href: pack_profile_path(profile.pack, profile)}
+            .intro
+              .image{:style => "background-image:url(#{profile.image.url})"}
+              .preview
+                %h2=profile.name
+                %p= profile.quote
+            .basics
+              -unless profile.age.blank?
+                %p
+                  %span
+                    Age:
+                  =profile.age
+              -unless profile.occupation.blank?
+                %p
+                  %span
+                    Occupation:
+                  = profile.occupation
 
-  %h1 Random personas
-  .cards.grid.js-masonry
-    - @packs.each do |pack|
-      - pack.profiles.each do |profile|
-        %a.card.profile.view.grid-item{href: pack_profile_path(profile.pack, profile)}
-          .intro
-            .image{:style => "background-image:url(#{profile.image.url})"}
-            .preview
-              %h2=profile.name
-              %p= profile.quote
-          .basics
-            -unless profile.age.blank?
-              %p
-                %span
-                  Age:
-                =profile.age
-            -unless profile.occupation.blank?
-              %p
-                %span
-                  Occupation:
-                = profile.occupation
-
-            %p.pack= profile.pack.name
+              %p.pack= profile.pack.name
 

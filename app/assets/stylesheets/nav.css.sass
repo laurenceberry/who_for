@@ -2,10 +2,19 @@ header
   width: 100%
   height: auto
   float: left
-  padding: 15px 0
+  padding: 25px 25px 15px 25px
+  background-color: $lightest_grey
   a.logo
-    font-size: 2.5em
+    font-size: $larger-font-size
     color: $primary
     text-decoration: none
   a.user_link
     float: right
+    text-decoration: none
+    padding: 8px 15px
+    border: 1px solid $primary
+    background-color: #fff
+    border-radius: 3px
+    margin-top: -8px
+  .inner
+    +max-widths()
