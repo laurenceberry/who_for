@@ -10,6 +10,19 @@
         Sign up to create profiles
 
 
+-if @your_packs.any?
+  %section.packs
+    .inner
+      %h2 Your packs
+      .cards.grid.js-masonry
+        - @your_packs.each do |pack|
+          %a.card.pack.grid-item{ href: pack_path(pack) }
+            .intro
+              .image{:style => "background-image:url(#{pack.image.url})"}
+              .preview
+                %h3= pack.name
+
+
 %section.packs
   .inner
     %h2 Packs

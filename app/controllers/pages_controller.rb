@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
+
   def index
-    @packs = Pack.all.shuffle.take(6)
+    @user = current_user
+    @packs = Pack.where('is_public = false')
+    @your_packs = Pack.where("created_by = '#{@user.id}'")
   end
+
 end

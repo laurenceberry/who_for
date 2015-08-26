@@ -15,5 +15,12 @@
   = f.label :name
   = f.text_field :name
 
+  = f.label :is_public, "Make this pack private"
+  = f.check_box :is_public
+  .clear
+  %br
+
+  = f.hidden_field(:created_by, :value => current_user.id)
+
   = f.submit :class => 'button'
 

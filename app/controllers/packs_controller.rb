@@ -46,6 +46,6 @@ class PacksController < ApplicationController
 private
 
   def pack_params
-    params.require(:pack).permit(:name, :image)
+    params.require(:pack).permit(:name, :image, :created_by, :is_public)
   end
 end
