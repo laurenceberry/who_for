@@ -1,5 +1,9 @@
-#show, #edit, #new, #create, #update
+.profiles#show, #edit, #new, #create, #update
+  main
+    +max-widths()
+    padding-top: 105px
 
+#show, #edit, #new, #create, #update
 
   %block,
   .block
@@ -41,7 +45,6 @@
         background-color: $primary
         color: $light_grey
         margin-top: 0
-        padding: 25px
         border-top: none
 
       .image

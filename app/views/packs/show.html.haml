@@ -1,43 +1,47 @@
-%section
-  %h1
-    = @pack.name
+%section.details
+  .inner
+    %h1
+      = @pack.name
 
-  -if user_signed_in?
-    = link_to 'Edit', edit_pack_path(@pack)
-    = link_to 'Destroy', pack_path(@pack), |
-        method: :delete,                          |
-        data: { confirm: 'Are you sure?' }        |
-    %br
-    %br
+%section.profiles
+  .inner
+    .cards.grid.js-masonry
+      - @pack.profiles.each do |profile|
+        %a.card.profile.view.grid-item{href: pack_profile_path(profile.pack, profile)}
+          .intro
+            .image{:style => "background-image:url(#{profile.image.url})"}
+            .preview
+              %h2=profile.name
+              %p= profile.quote
+          .basics
+            -unless profile.age.blank?
+              %p
+                %span
+                  Age:
+                =profile.age
+            -unless profile.occupation.blank?
+              %p
+                %span
+                  Occupation:
+                = profile.occupation
 
-  .clear
+            %p.pack= profile.pack.name
 
-  .cards.grid.js-masonry
-    - @pack.profiles.each do |profile|
-      %a.card.profile.view.grid-item{href: pack_profile_path(profile.pack, profile)}
+
+    -if user_signed_in?
+      %a.card.add{:href => new_pack_profile_path(@pack)}
         .intro
-          .image{:style => "background-image:url(#{profile.image.url})"}
           .preview
-            %h2=profile.name
-            %p= profile.quote
-        .basics
-          -unless profile.age.blank?
-            %p
-              %span
-                Age:
-              =profile.age
-          -unless profile.occupation.blank?
-            %p
-              %span
-                Occupation:
-              = profile.occupation
+            .image
+            %h3 Add new persona
 
-          %p.pack= profile.pack.name
 -if user_signed_in?
+  %section
+    .inner
+      %h2 Edit pack
+      %br
+      = link_to 'Edit', edit_pack_path(@pack), :class => 'button'
+      = link_to 'Destroy', pack_path(@pack), :class => 'button', |
+          method: :delete,                          |
+          data: { confirm: 'Are you sure?' }        |
 
-  %section.new
-    %a.card.add{:href => new_pack_profile_path(@pack)}
-      .intro
-        .preview
-          .image
-          %h3 Add new persona
