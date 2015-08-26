@@ -19,8 +19,8 @@
   = f.check_box :is_public
   .clear
   %br
-
-  = f.hidden_field(:created_by, :value => current_user.id)
+  -unless @pack.created_by.blank?
+    = f.hidden_field(:created_by, :value => current_user.id)
 
   = f.submit :class => 'button'
 
