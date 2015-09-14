@@ -58,6 +58,6 @@ class ProfilesController < ApplicationController
 
 private
   def profile_params
-    params.require(:profile).permit(:updated_by, :image, :name, :generate_name, :description, :characteristics, :oppertunities, :cautions, :background, :motivation, :living_situation, :quote, :age, :occupation, :summary, scalers_attributes: [:id, :name, :profile_id, :scale, :out_of], quotes_attributes: [:id, :quote, :profile_id], basic_repeatables_attributes: [:id, :name, :content, :profile_id], characteristic_repeatables_attributes: [:id, :name, :content, :profile_id], images_attributes: [:profile_id, :id, :repeatable_image] )
+    params.require(:profile).permit(:updated_by, :image, :name, :generate_name, :description, :characteristics, :oppertunities, :cautions, :background, :motivation, :living_situation, :quote, :age, :occupation, :summary, scalers_attributes: [:id, :name, :profile_id, :scale, :out_of, :_destroy], quotes_attributes: [:id, :quote, :profile_id, :_destroy], basic_repeatables_attributes: [:id, :name, :content, :profile_id, :_destroy], characteristic_repeatables_attributes: [:id, :name, :content, :profile_id, :_destroy], images_attributes: [:profile_id, :id, :repeatable_image, :_destroy] )
   end
 end

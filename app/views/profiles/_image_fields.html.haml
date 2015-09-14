@@ -6,4 +6,5 @@
     = f.object.repeatable_image_file_name
     = f.file_field(:repeatable_image)
     = f.hidden_field :_destroy
-    = link_to 'remove', '#', class: "remove_field"
+    = f.label :_destroy, "Remove this field"
+    = f.check_box :_destroy
